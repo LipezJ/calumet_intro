@@ -1,0 +1,22 @@
+.my-custom-scrollbar {
+  position: relative;
+  height: 60%;
+  overflow: auto;
+  }
+.table-wrapper-scroll-y {
+  display: block;
+  height: 95%;
+}
+.table-wrapper-scroll-y table {
+  max-width: 95%;
+}
+main {
+  height: 100vh;
+  width: 100vw;
+}
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown>.dropdown-toggle:active {
+  pointer-events: none;
+}

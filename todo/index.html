@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="./todo.js"></script>
+</head>
+<style>
+  .task-success {
+    background-color: #19875428;
+  }
+  form {
+    height: fit-content;
+  }
+  body article article ul {
+    max-height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    overflow-y: auto;
+  }
+</style>
+<body>
+  <article ng-controller="TodoController as todo" class="row m-3">
+    <form ng-submit="todo.addTask()" class="col col-4">
+      <h2>Tareas</h2>
+      <div class="input-group mb-2">
+        <input type="text" size="30" name="task" class="form-control" placeholder="Nueva tarea..." ng-model="todo.taskText">
+        <button class="btn btn-primary" type="submit" id="button-addon1">+</button>
+      </div>
+      <label for="description" class="form-label">Descripcion:</label>
+      <div class="mb-3">
+        <textarea class="form-control" name="description" rows="3" ng-model="todo.descriptionText"></textarea>
+      </div>
+    </form>
+    <article class="col col-8">
+      <ul class="gap-2">
+        <li ng-repeat="task in todo.tasks" class="list-unstyled col">
+          <div class="card" class="w-100" ng-class="{ 'task-success': task.done }">
+            <div class="card-body">
+              <h5 class="card-title col" ng-bind="task.name"></h5>
+              <p class="card-text" ng-bind="task.description"></p>
+              <div class="row px-2 gap-2">
+                <button ng-click="todo.deleteTask(task.id)" class="btn btn-danger btn-sm col col-2">🗑️</button>
+                <button ng-click="todo.markTask(task.id)" class="btn btn-success btn-sm col col-2">✅</button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </article>
+</body>
+</html>
