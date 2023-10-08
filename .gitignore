@@ -1,1 +1,7 @@
 /universidad/build
+
+/todo/dist/
+/todo/build/
+/todo/nbproject/
+
+/todo/build.xml

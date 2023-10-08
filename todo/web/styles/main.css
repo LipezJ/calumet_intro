@@ -1,0 +1,17 @@
+/* 
+    Created on : 8/10/2023
+    Author     : juand
+*/
+
+.task-success {
+  background-color: #19875428;
+}
+form {
+  height: fit-content;
+}
+body article article ul {
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  overflow-y: auto;
+}
